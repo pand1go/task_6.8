@@ -1,6 +1,12 @@
-/*Убираем отступы в body*/
-body {
+/*Убираем отступы во всем html для закрепления footer внизу страницы*/
+* {
     margin: 0;
+}
+/*Форматирование html и body для закрепления footer внизу страницы*/
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 /*Оформление шапки сайта с позиционированием внутренних элементов*/
 header {
@@ -16,11 +22,21 @@ header h1 {
     /*Создание тени текста: первое значение - смещение по оси x; второе значение - смещение по оси y; третье значение - размытие; четвертое - цвет тени*/
     text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black, 5px 5px 5px rgba(0,0,0,.5);
 }
+main {
+    /*Задание гибких размеров: первое значение - коэффициент увеличения 
+    ширины flex-элемента относительно других flex-элементов; второе значение -
+    коэффициент уменьшения ширины flex-элемента относительно других flex-элементов;
+    третье значение - базовая ширина flex-элемента.*/
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /*Оформление текста заголовка и позиционирование блока с текстом и картинкой*/
 .mainHeader {
     display: flex;
     justify-content: center;
-    margin: 10px auto;
+    margin: 20px auto;
     font-size: 22px;
     color:#00BC00;
     text-shadow: 1px 1px 0 black, -1px -1px 0 black;
@@ -30,7 +46,7 @@ img {
     height: 70px;
     width: 65px;
     position: relative;
-    top: 15px;
+    bottom: 10px;
 }
 /*Оформление блока ol с позиционированием элементов внутри него*/
 .list {
@@ -96,4 +112,6 @@ footer {
     color: white;
     font-size: 20px;
     padding: 20px;
+    /*Задание гибких размеров для закрепления footer внизу страницы с учетом предыдущих свойств*/
+    flex: 0 0 auto;
 }
