@@ -1,0 +1,156 @@
+/*Убираем отступы во всем html для закрепления footer внизу страницы*/
+* {
+    margin: 0;
+}
+/*Форматирование html и body для закрепления footer внизу страницы*/
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/*Оформление шапки сайта с позиционированием внутренних элементов*/
+header {
+    height: 100px;
+    border-bottom: 10px solid #00BC00;
+    display: flex;
+}
+/*Оформление текста внутри header*/
+header h1 {
+    color: #00BC00;
+    font-size: 45px;
+    margin: auto 30px;
+    /*Создание тени текста: первое значение - смещение по оси x; второе значение - смещение по оси y; третье значение - размытие; четвертое - цвет тени*/
+    text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black, 5px 5px 5px rgba(0,0,0,.5);
+}
+/*Оформление основного содержимого с позиционированием внутренних элементов*/
+main {
+    /*Задание гибких размеров: первое значение - коэффициент увеличения 
+    ширины flex-элемента относительно других flex-элементов; второе значение -
+    коэффициент уменьшения ширины flex-элемента относительно других flex-элементов;
+    третье значение - базовая ширина flex-элемента.*/
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*Оформление заголовка h1 в main*/
+main h1 {
+    font-size: 45px;
+    color:#00BC00;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black;
+    margin: 20px;
+}
+/*Оформление блока .textForm и его содержимого с позиционированием элементов внутри него*/
+.textForm {
+    margin: 20px 30px;
+    background-color: #00bc0028;
+    width: 500px;
+    /*Задание минимальной и максимальной высоты для растягивания блока в зависимости от содержимого*/
+    min-height: 200px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 20px;
+}
+label, p {
+    margin: 15px 30px;
+    /*Задание строчно-блочной модели*/
+    display: inline-block;
+}
+/*Оформление элемента input*/
+input {
+    width: 200px;
+    font-size: 0.8em;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    /*Убираем внешнюю границу*/
+    outline: none;
+    border: 2px solid #00BC00;
+    background-color: rgba(212, 212, 212, 0.836);
+}
+/*Изменение стиля input при наведении курсора (псевдокласс hover)*/
+input:hover {
+    background-color: white;
+}
+/*Изменение стиля input при клике на поле (псевдокласс focus)*/
+input:focus {
+    background-color: white;
+    outline: 3px solid #6fe96fe0;
+}
+/*Оформление элемента button*/
+button {
+    /*Задание блочной модели*/
+    display: block;
+    margin: 15px 30px;
+    padding: 15px 20px;
+    /*Изменение вида курсора при наведении*/
+    cursor: pointer;
+    font-size: 15px;
+    color: white;
+    background-color: #00BC00;
+    /*Убираем границы*/
+    border: none;
+    border-radius: 15px;
+    /*Задание тени блока*/
+    box-shadow: 2px 5px rgb(85, 84, 84);
+}
+/*Изменение стиля button при наведении курсора (псевдокласс hover)*/
+button:hover {
+    background-color: #079107;
+}
+/*Изменение стиля button при нажатии на кнопку (псевдокласс active)*/
+button:active {
+    background-color: #079107;
+    /*Анимация нажатия кнопки заданием смещения тени*/
+    box-shadow: 0.5px 2px rgb(85, 84, 84);
+    transform: translateY(3px) translateX(1.5px);
+}
+/*Оформление поля ввывода элемента p#duplicateField*/
+#duplicateField {
+    border: 2px solid #00BC00;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 20px 20px;
+    background-color: white;
+    color: #00BC00;
+}
+/*Оформление и позиционирование ссылки перехода на главную страницу*/
+main a {
+    display: block;
+    /*Фиксация элемента в определенном положении на странице*/
+    position: fixed;
+    top: 75vh;
+    left: 5vw;
+    text-decoration: none;
+    color: #00BC00;
+    font-size: 30px;
+    border: 2px solid #00BC00;
+    border-radius: 15px;
+    padding: 10px 30px;
+}
+/*Добавление псевдоэлемента before и его анимации смещения*/
+main a::before {
+    content: ">>";
+    display: inline-block;
+    margin-right: 22px;
+    transition: 0.3s;
+}
+main a:hover::before {
+    transition: 0.3s;
+    transform: translateX(20px);
+}
+/*Оформление подвала сайта с позиционированием его содержимого*/
+footer {
+    height: 100px;
+    background: #00BC00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    /*Задание гибких размеров для закрепления footer внизу страницы с учетом предыдущих свойств*/
+    flex: 0 0 auto;
+}

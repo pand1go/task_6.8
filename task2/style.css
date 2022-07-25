@@ -1,0 +1,122 @@
+/*Убираем отступы во всем html для закрепления footer внизу страницы*/
+* {
+    margin: 0;
+}
+/*Форматирование html и body для закрепления footer внизу страницы*/
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/*Оформление шапки сайта с позиционированием внутренних элементов*/
+header {
+    height: 100px;
+    border-bottom: 10px solid #00BC00;
+    display: flex;
+}
+/*Оформление текста внутри header*/
+header h1 {
+    color: #00BC00;
+    font-size: 45px;
+    margin: auto 30px;
+    /*Создание тени текста: первое значение - смещение по оси x; второе значение - смещение по оси y; третье значение - размытие; четвертое - цвет тени*/
+    text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black, 5px 5px 5px rgba(0,0,0,.5);
+}
+/*Оформление основного содержимого с позиционированием внутренних элементов*/
+main {
+    /*Задание гибких размеров: первое значение - коэффициент увеличения 
+    ширины flex-элемента относительно других flex-элементов; второе значение -
+    коэффициент уменьшения ширины flex-элемента относительно других flex-элементов;
+    третье значение - базовая ширина flex-элемента.*/
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*Оформление заголовка h1 в main*/
+main h1 {
+    font-size: 45px;
+    color:#00BC00;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black;
+    margin: 20px;
+}
+/*Оформление содержимого p в блоке .instructions*/
+.instructions p {
+    font-size: 25px;
+    color: #00BC00;
+    font-weight: bold;
+    margin: 20px 0;
+    /*Изменение стиля курсора при наведении на блок p*/
+    cursor: pointer;
+}
+/*Изменение стиля при наведении на блок p (псевдокласс hover)*/
+.instructions p:hover {
+    color: red;
+}
+/*Добавление псевдоэлемента before и его анимации смещения*/
+.instructions p::before {
+    content: ">>";
+    display: inline-block;
+    margin-right: 22px;
+    transition: 0.3s;
+}
+.instructions p:hover::before {
+    transition: 0.3s;
+    transform: translateX(20px);
+}
+/*Оформление блока .language*/
+.language {
+    background-color: rgba(161, 205, 235, 0.712);
+    padding: 10px 30px;
+    width: 400px;
+    /*Задание блочной модели*/
+    display: block;
+}
+/*Оформление отдельных элементов текста заключенных в контейнер span*/
+.codeJS {
+    color: rgb(20, 132, 223);
+}
+.punctuation {
+    color: rgb(238, 114, 13);
+}
+.content {
+    color: rgb(112, 112, 112);
+}
+/*Оформление и позиционирование ссылки перехода на главную страницу*/
+main a {
+    /*Задание блочной модели*/
+    display: block;
+    position: fixed;
+    top: 75vh;
+    left: 5vw;
+    text-decoration: none;
+    color: #00BC00;
+    font-size: 30px;
+    border: 2px solid #00BC00;
+    border-radius: 15px;
+    padding: 10px 30px;
+}
+/*Добавление псевдоэлемента before и его анимации смещения*/
+main a::before {
+    content: ">>";
+    display: inline-block;
+    margin-right: 22px;
+    transition: 0.3s;
+}
+main a:hover::before {
+    transition: 0.3s;
+    transform: translateX(20px);
+}
+/*Оформление подвала сайта с позиционированием его содержимого*/
+footer {
+    height: 100px;
+    background: #00BC00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    /*Задание гибких размеров для закрепления footer внизу страницы с учетом предыдущих свойств*/
+    flex: 0 0 auto;
+}

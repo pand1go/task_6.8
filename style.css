@@ -1,0 +1,99 @@
+/*Убираем отступы в body*/
+body {
+    margin: 0;
+}
+/*Оформление шапки сайта с позиционированием внутренних элементов*/
+header {
+    height: 100px;
+    border-bottom: 10px solid #00BC00;
+    display: flex;
+}
+/*Оформление текста внутри header*/
+header h1 {
+    color: #00BC00;
+    font-size: 45px;
+    margin: auto 30px;
+    /*Создание тени текста: первое значение - смещение по оси x; второе значение - смещение по оси y; третье значение - размытие; четвертое - цвет тени*/
+    text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black, 5px 5px 5px rgba(0,0,0,.5);
+}
+/*Оформление текста заголовка и позиционирование блока с текстом и картинкой*/
+.mainHeader {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    font-size: 22px;
+    color:#00BC00;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black;
+}
+/*Оформление картинки в блоке .mainHeader*/
+img {
+    height: 70px;
+    width: 65px;
+    position: relative;
+    top: 15px;
+}
+/*Оформление блока ol с позиционированием элементов внутри него*/
+.list {
+    display: flex;
+    /*Задание направления оси в контейнере(вертикально)*/
+    flex-direction: column;
+    /* Распределение пространства вокруг флекс-элементов вдоль главной оси контейнера*/
+    justify-content: space-around;
+    /* Замена маркеров на картинки*/
+    list-style-image: url('images/edit.svg');
+    padding-left: 0;
+}
+/*Оформление элементов li*/
+.taskLink {
+    color: black;
+    /*Убираем дефолтное оформление ссылок*/
+    text-decoration: none;
+    height: 50px;
+    width: 300px;
+    margin: 20px auto;
+    padding: 10px 30px;
+    border: 2px solid #00BC00;
+    border-radius: 15px;
+    font-size: 25px;
+    /*Позиционирование элементов*/
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    /*Указываем минимальную высоту блоков строк внутри элемента равной высоте блока для выравнивания по вертикали.*/
+    line-height: 50px;
+    /*Расположение маркера / цифры внутри элемента списка вместе с содержимым.*/
+    list-style-position: inside;
+}
+/*Добавление псевдоэлементом текста перед элементом li*/
+.taskLink::before {
+    content: ">>";
+    display: block;
+    transition: 0.3s;
+}
+/*Добавление псевдоэлементом текста после элемента li*/
+.taskLink::after {
+    content: "<<";
+    display: block;
+    transition: 0.3s;
+}
+/*Добавление смещения содежимого псевдоэлемента по оси х по наведению (псевдокласс hover)*/
+.taskLink:hover::before {
+    transition: 0.3s;
+    transform: translateX(20px);
+}
+/*Добавление смещения содежимого псевдоэлемента по оси х по наведению (псевдокласс hover)*/
+.taskLink:hover::after {
+    transition: 0.3s;
+    transform: translateX(-20px);
+}
+/*Оформление подвала сайта с позиционированием его содержимого*/
+footer {
+    height: 100px;
+    background: #00BC00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+}

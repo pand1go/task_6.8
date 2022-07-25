@@ -1,0 +1,122 @@
+/*Убираем отступы во всем html для закрепления footer внизу страницы*/
+* {
+  margin: 0;
+}
+/*Форматирование html и body для закрепления footer внизу страницы*/
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/*Оформление шапки сайта с позиционированием внутренних элементов*/
+header {
+  height: 100px;
+  border-bottom: 10px solid #00BC00;
+  display: flex;
+}
+/*Оформление текста внутри header*/
+header h1 {
+  color: #00BC00;
+  font-size: 45px;
+  margin: auto 30px;
+  /*Создание тени текста: первое значение - смещение по оси x; второе значение - смещение по оси y; третье значение - размытие; четвертое - цвет тени*/
+  text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black, 5px 5px 5px rgba(0,0,0,.5);
+}
+/*Оформление основного содержимого с позиционированием внутренних элементов*/
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/*Оформление заголовка h1 в main*/
+main h1 {
+  font-size: 45px;
+  color:#00BC00;
+  text-shadow: 1px 1px 0 black, -1px -1px 0 black;
+  margin: 20px;
+}
+/*Оформление элементов div - цвета светофора*/
+#trafficLight1, #trafficLight2, #trafficLight3 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: black;
+  margin: auto;
+}
+/*Оформление элемента div - светофор, и задание позиционирования для его содержимого*/
+.box {
+  width: 120px;
+  height: 350px;
+  background: rgb(71, 74, 81);
+  /*Задание тени элемента: первое значение - смещение по оси x; второе значение - смещение по оси y; третье значение - размытие;
+  четвертое - растяжение размытия, пятое - цвет тени*/
+  box-shadow: 7px -5px 0 1px black;
+  box-sizing: border-box;
+  border: 5px solid black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  /*Один из способов центрирования*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+/*Создание анимации появления текста при наведении на элемент, с помощью псевдокласса hover и псевдоэлемента after*/
+.box::after {
+  content: "Нажмите на один из световых сигналов";
+  display: block;
+  margin-top: 10px;
+  /*Задание прозрачного текста*/
+  color: transparent;
+  transition: 0.3s;
+  position: absolute;
+  left: 200px;
+  width: 400px;
+  font-size: 40px;
+}
+.box:hover::after {
+  transition: 0.3s;
+  color: #00BC00;
+}
+/*Оформление и позиционирование ссылки перехода на главную страницу*/
+main a {
+  /*Задание блочной модели*/
+  display: block;
+  /*Фиксация элемента в определенном положении на странице*/
+  position: fixed;
+  top: 75vh;
+  left: 5vw;
+  text-decoration: none;
+  color: #00BC00;
+  font-size: 30px;
+  border: 2px solid #00BC00;
+  border-radius: 15px;
+  padding: 10px 30px;
+}
+/*Добавление псевдоэлемента before и его анимации смещения*/
+main a::before {
+  content: ">>";
+  display: inline-block;
+  margin-right: 22px;
+  transition: 0.3s;
+}
+main a:hover::before {
+  transition: 0.3s;
+  transform: translateX(20px);
+}
+/*Оформление подвала сайта с позиционированием его содержимого*/
+footer {
+  height: 100px;
+  background: #00BC00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  /*Задание гибких размеров для закрепления footer внизу страницы с учетом предыдущих свойств*/
+  flex: 0 0 auto;
+}
